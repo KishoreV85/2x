@@ -7,7 +7,7 @@ from RealESRGAN import RealESRGAN
 
 def main() -> int:
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = RealESRGAN(device, scale=2)
+    model = RealESRGAN(device, scale=4)
     model.load_weights(2)
     for i, image in enumerate([f for f in os.listdir("inputs") if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp'))]):
         image = Image.open(f"inputs/{image}").convert('RGB')
